@@ -43,8 +43,7 @@ WHERE {
       sosa:resultTime ?resultTime ;
 			sosa:phenomenonTime ?phenomenonTime .
     OPTIONAL {
-      ?result a ?item ;
-        rdfs:label ?item_label ; 
+      ?result rdfs:label ?item_label ; 
 			  qudt:numericValue ?item_value ;
         qudt:unit ?unit .
 	  }
