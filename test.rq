@@ -11,7 +11,7 @@
 #+   "$anchor": "description",
 #+   "@iot.count": "?total",
 #+   "@iot.nextLink": "?next_link",
-#+}
+#+ }
 
 PREFIX lucas-api: <https://w3id.org/glosis/lucas/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/>
@@ -20,8 +20,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 
 SELECT DISTINCT ?info ?total ?next_link 
-FROM <http://w3id.org/glosis/model/>
-FROM <http://w3id.org/glosis/open/LUCAS/topsoildata/>
 WHERE {
     ?s rdf:type/rdfs:subClassOf* sosa:Observation ;
       rdfs:label ?label ;
