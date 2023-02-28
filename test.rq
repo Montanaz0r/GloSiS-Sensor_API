@@ -11,8 +11,7 @@
 #+   "$anchor": "description",
 #+   "@iot.count": "?total",
 #+   "@iot.nextLink": "?next_link",
-#+   }
-#+ }
+#+}
 
 PREFIX lucas-api: <https://w3id.org/glosis/lucas/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns/>
