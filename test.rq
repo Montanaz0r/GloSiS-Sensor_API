@@ -11,6 +11,19 @@
 #+   "$anchor": "description",
 #+   "@iot.count": "?total",
 #+   "@iot.nextLink": "?next_link",
+#+   "value": {
+#+     "@iot.id": "?id",
+#+     "@iot.selfLink": "?id_link",
+#+     "phenomenonTime": "?phenomenonTime",
+#+     "resultTime": "?resultTime",
+#+     "result": {
+#+        "label": "?item_label",
+#+        "numeric_value": "?item_value",
+#+        "unit": "?unit",
+#+     },
+#+     "Datastream@iot.navigationLink": "?datastream_link",
+#+     "FeatureOfInterest@iot.navigationLink": "?feature_link",
+#+   }
 #+ }
 
 PREFIX lucas-api: <https://w3id.org/glosis/lucas/api/>
@@ -21,7 +34,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT DISTINCT ?info ?total ?next_link
+SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?phenomenonTime ?resultTime ?item_label ?item_value ?unit ?datastream_link ?feature_link
 FROM <http://w3id.org/glosis/model/>
 FROM <http://w3id.org/glosis/open/LUCAS/topsoildata/>
 WHERE {
