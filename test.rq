@@ -34,7 +34,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?phenomenonTime ?resultTime ?item_label ?item_value ?unit ?datastream_link ?feature_link
+SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?phenomenonTime ?resultTime ?item_label ?item_value ?unit ?datastream_link ?feature_link ?result
 FROM <http://w3id.org/glosis/model/>
 FROM <http://w3id.org/glosis/open/LUCAS/topsoildata/>
 WHERE {
