@@ -32,7 +32,7 @@ PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 
-SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?datastream_link ?feature_link ?item_label ?value ?unit
+SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?datastream_link ?feature_link ?item_label ?value ?unit ?phenomenonTime ?resultTime
 FROM <http://w3id.org/glosis/model/>
 FROM <http://w3id.org/glosis/open/LUCAS/topsoildata/>
 WHERE {
