@@ -1,4 +1,4 @@
-#+ summary: "Retrieves all the information about ILIAD Observations"
+#+ summary: "Retrieves all the information about GloSiS-LUCAS Observations"
 #+ description: "NOTE: make sure response content type is application/json"
 #+ endpoint: "https://www.foodie-cloud.org/sparql"
 #+ tags:
