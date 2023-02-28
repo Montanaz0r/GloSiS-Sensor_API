@@ -26,9 +26,6 @@ FROM <http://w3id.org/glosis/model/>
 FROM <http://w3id.org/glosis/open/LUCAS/topsoildata/>
 WHERE {
     ?s rdf:type/rdfs:subClassOf* sosa:Observation ;
-      rdfs:label ?label ;
-      sosa:FeatureOfInterest ?foi ;
-      sosa:observedProperty ?obs_prop ;
       sosa:hasResult ?result ;
       sosa:resultTime ?resultTime ;
 			sosa:phenomenonTime ?phenomenonTime .
