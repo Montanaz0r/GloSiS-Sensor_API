@@ -18,7 +18,7 @@
 #+     "resultTime": "?resultTime",
 #+     "result": {
 #+        "label": "?item_label",
-#+        "numeric_value": "?item_value",
+#+        "value": "?item_value",
 #+        "unit": "?unit",
 #+     },
 #+     "Datastream@iot.navigationLink": "?datastream_link",
@@ -55,7 +55,7 @@ WHERE {
     {
        SELECT (count(*) as ?total) WHERE { ?x rdf:type/rdfs:subClassOf* sosa:Observation }
     }
-    OPTIONAL { ?s ?p ?_page } 
+    OPTIONAL { ?s ?p ?_page }
     BIND (URI(CONCAT('https://w3id.org/glosis/lucas/api/v1.0/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
 }
 ORDER BY ?id
