@@ -27,8 +27,6 @@
 #+ }
 
 PREFIX lucas-api: <https://w3id.org/glosis/lucas/api/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema/>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
@@ -43,7 +41,7 @@ WHERE {
       sosa:resultTime ?resultTime ;
 			sosa:phenomenonTime ?phenomenonTime .
     OPTIONAL {
-      ?result rdfs:label ?item_label ; 
+      ?result rdfs:label ?item_label ;
 			  qudt:numericValue ?item_value ;
         qudt:unit ?unit .
 	  }
