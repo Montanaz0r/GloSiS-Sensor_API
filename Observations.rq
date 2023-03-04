@@ -1,4 +1,4 @@
-#+ summary: "Retrieves all the information about GloSiS-LUCAS Observations"
+#+ summary: "Retrieves all the information about ILIAD Observations"
 #+ description: "NOTE: make sure response content type is application/json"
 #+ endpoint: "https://www.foodie-cloud.org/sparql"
 #+ tags:
@@ -18,7 +18,7 @@
 #+     "resultTime": "?resultTime",
 #+     "result": {
 #+        "label": "?item_label",
-#+        "numeric_value": "?value",
+#+        "value": "?item_value",
 #+        "unit": "?unit",
 #+     },
 #+     "Datastream@iot.navigationLink": "?datastream_link",
@@ -27,29 +27,24 @@
 #+ }
 
 PREFIX lucas-api: <https://w3id.org/glosis/lucas/api/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema/>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?datastream_link ?feature_link ?item_label ?item_value ?unit ?phenomenonTime ?resultTime
+SELECT DISTINCT ?info ?total ?next_link ?id ?id_link ?phenomenonTime ?resultTime ?item_label ?item_value ?unit ?datastream_link ?feature_link ?result
 FROM <http://w3id.org/glosis/model/>
 FROM <http://w3id.org/glosis/open/LUCAS/topsoildata/>
 WHERE {
     ?s rdf:type/rdfs:subClassOf* sosa:Observation ;
-      rdfs:label ?label ;
-      sosa:FeatureOfInterest ?foi ;
-      sosa:observedProperty ?obs_prop ;
       sosa:hasResult ?result ;
       sosa:resultTime ?resultTime ;
 			sosa:phenomenonTime ?phenomenonTime .
     OPTIONAL {
-      ?result a ?item ;
-        rdfs:label ?item_label ; 
+      ?result rdfs:label ?item_label ;
 			  qudt:numericValue ?item_value ;
         qudt:unit ?unit .
-        }
+	  }
 		BIND ("OGC SensorThings API - Observations" as ?info)
     BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
     BIND (URI(CONCAT('https://w3id.org/glosis/lucas/api/v1.0/Observations(', ?id,')')) AS ?id_link)
@@ -58,7 +53,7 @@ WHERE {
     {
        SELECT (count(*) as ?total) WHERE { ?x rdf:type/rdfs:subClassOf* sosa:Observation }
     }
-    OPTIONAL { ?s ?p ?_page } 
+    OPTIONAL { ?s ?p ?_page }
     BIND (URI(CONCAT('https://w3id.org/glosis/lucas/api/v1.0/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
 }
 ORDER BY ?id
